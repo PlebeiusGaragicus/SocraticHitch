@@ -146,7 +146,7 @@ if __name__ == "__main__":
     parser.add_argument("file", nargs="?", help="Path to a specific markdown file (optional)")
     parser.add_argument("--light", action="store_true", help="Use light mode instead of default dark mode")
     parser.add_argument("--input-dir", default="docs/example-arguments", help="Directory to search for MD files (default: docs/example-arguments)")
-    parser.add_argument("--output-dir", default="scripts/compiled-html", help="Directory to output HTML files (default: scripts/compiled-html)")
+    parser.add_argument("--output-dir", default="compiled-html", help="Directory to output HTML files (default: compiled-html)")
     
     args = parser.parse_args()
 
