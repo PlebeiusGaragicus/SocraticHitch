@@ -1,3 +1,4 @@
+```python
 from typing import Union, List
 from pathlib import Path
 from pydantic import HttpUrl
@@ -90,3 +91,4 @@ class SocraticSeminar:
     Narrative: Union[Clause]
 
     Refutations: List[Union[str, Clause, 'SocraticSeminar']]
+```
