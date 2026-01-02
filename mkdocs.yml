@@ -41,5 +41,4 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Example Arguments:
-      - Persia: example-arguments/Persia.md
       - Vibecoding: example-arguments/vibecoding.md
