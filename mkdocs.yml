@@ -1,7 +1,7 @@
 site_name: SvelteReader
 site_description: A nostr-native ebook reader with AI-powered annotations and ecash micropayments
-site_url: https://yourorg.github.io/SvelteReader/
-repo_url: https://github.com/yourorg/SvelteReader
+site_url: https://PlebeiusGaragicus.github.io/SocraticHitch/
+repo_url: https://github.com/PlebeiusGaragicus/SocraticHitch
 repo_name: SvelteReader
 
 theme:
