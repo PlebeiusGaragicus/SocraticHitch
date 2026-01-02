@@ -40,5 +40,5 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Example Arguments:
-      - Vibecoding: example-arguments/vibecoding.md
+  - Arguments:
+      - Vibecoding: arguments/vibecoding.md

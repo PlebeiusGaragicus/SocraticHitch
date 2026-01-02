@@ -20,5 +20,5 @@ You can also compile specific files or use light mode:
 The `./compile.sh` script will:
 1.  Automatically create a Python virtual environment (`venv`) if it doesn't exist.
 2.  Install the necessary dependencies from `requirements.txt`.
-3.  Compile the Markdown files located in `docs/example-arguments/` into HTML.
+3.  Compile the Markdown files located in `docs/arguments/` into HTML.
 4.  Output the compiled HTML files into the `compiled-html/` folder at the project root.

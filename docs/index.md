@@ -14,6 +14,3 @@ We propose a web application called "Socratic Hitch" that can be analogzed to a 
 This tool being a `hitch` which can pull you along, deeper into the act of research and self-argumentation in order to develop and refine your beliefs.
 
 These "Seminars" are meant to be shared with others, refuted, refined, shared, researched and interrogated... endlessly... as we slowly build out clear-headed thinking which may help us live more informed lives.
-
----
-
