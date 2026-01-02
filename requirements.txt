@@ -1,2 +1,2 @@
-markdown
-pyyaml
+mkdocs-material
+pymdown-extensions
