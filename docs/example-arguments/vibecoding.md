@@ -22,7 +22,7 @@ reply_to: nevent234567... <parent nostr event id>
 
 `The "Vibe":` A colloquial term for the high-level conceptual model and aesthetic/functional requirements of a project.
 
- **<span style="color:red">Refutation:</span>** This is non-standard jargon without a widespread colloqial usage.
+ **<span style="color:red">Refutation:</span>** This is considered jargon: without widespread understanding or colloqial usage.
 
 ---
 
