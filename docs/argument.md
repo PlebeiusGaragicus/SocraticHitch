@@ -1,5 +1,5 @@
 ```python
-from typing import Union, List
+from typing import Union, List, Optional
 from pathlib import Path
 from pydantic import HttpUrl
 from langchain.schema import AIMessage, HumanMessage
@@ -24,55 +24,63 @@ class Media:
     path: Path
     """The path to the media file"""
 
-    ai_analysis: Analysis
+    ai_analysis: Optional[List[Analysis]]
     """This is AI-generated inference or analysis of the media"""
-
 
 class WebResource:
     """This is a single web resource (photo, video, etc) and/or URL"""
 
-    url: HttpUrl
+    scrape: Media
+    """The scrape of the web resource"""
+
+    source_url: HttpUrl
     """The URL of the web resource"""
 
     timestamp: datetime
     """The timestamp of the web resource"""
 
     snapshot: Path
-    """The PDF snapshot of the web resource"""
+    """The PDF snapshot of the web resource taken at the time of the scrape"""
 
-    scrape: Media
-    """The scrape of the web resource"""
+    ai_analysis: Optional[List[Analysis]]
+    """
+    This is AI-generated inference or analysis of the media.
+    It may provide, for example, cleaned audio, a transcript of human dialogue, an analysis of a video which determines the make and model of a vehicle and or a summary of a podcast
+    We may have multiple analysis, each with their own prompt
+    """
 
-    ai_analysis: Analysis
-    """This is AI-generated inference or analysis of the media"""
+class Highlight:
+    """This is essentially a quote from a source (ebook, web article, etc)"""
+
+    source: Union[Media, WebResource]
+
+    quote: str #TODO; consider using cfiRange or some object to provide location data
 
 
 class Definition:
-    """A `Definition` is like a footnote or endnote, and this would be the content or author's remark"""
-
     term: str
-    """A new `term` or `fact` that may later be referrenced in the argument"""
 
     media: List[Union[Media, WebResource]]
     """A list of media files (photo, video, etc) and/or list of URLs. Perhaps these would be kept in the same 'folder' together."""
 
-    human_narrative: str
-    """The content or author's remark regarind the media - this is the 'endnote'"""
+    definition: str
 
 
 class Clause:
     """This is a single-encapsulted "argument" or attempted statement of fact to establish our logic, block by block"""
 
     title: str
-    """the name and unique id of the clause"""
 
-    definitions: List[Definition]
-    """our supporting evidence and 'grounding' that establishes meaning and provides point-of-view"""
+    definitions: Optional[List[Union[Definition | Highlight]]]
+    """
+    - our supporting evidence and 'grounding' that establishes meaning, common terms and provides point-of-view
+    - it's also where we can `point to something` and quote it - like a book or article highlight
+    """
 
     narrative: str
     """the body of an argument which pulls from earlier-defined fact"""
 
-    refutation: List[Union[str, Clause, 'SocraticSeminar']]
+    refutation: Optional[List[Union[str, Clause, 'SocraticSeminar']]]
     """
     - we may have a list of refutations, kept and replied to in order to establish our past thoughts on the issue, old ways of thinking, past contraversies, etc.
     - These can be included to further context to stregnthen our argument.
@@ -84,11 +92,13 @@ class Clause:
 class SocraticSeminar:
     """This `Seminar` object defines a cogent argument or `position paper` from an author.  It is the self-contained material for one side in a debate"""
 
-    Abstract: str
+    title: str
 
-    Supporting_Arguments: List[Clause]
+    abstract: Optional[str]
 
-    Narrative: Union[Clause]
+    supporting_clauses: Optional[List[Clause]]
 
-    Refutations: List[Union[str, Clause, 'SocraticSeminar']]
+    narrative: Union[Clause]
+
+    refutations: Opetional[List[Union[str, Clause, 'SocraticSeminar']]]
 ```
